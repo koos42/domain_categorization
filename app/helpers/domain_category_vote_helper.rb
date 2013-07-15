@@ -1,0 +1,2 @@
+module DomainCategoryVoteHelper
+end

@@ -1,0 +1,2 @@
+class DomainCategoryVoteController < ApplicationController
+end
