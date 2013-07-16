@@ -1,4 +1,6 @@
 class DomainCategoryVotes < ActiveRecord::Base
+  validates :vote, presence: true
+
   belongs_to :domain
   belongs_to :category
 
