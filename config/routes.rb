@@ -14,7 +14,7 @@ PornOrNot::Application.routes.draw do
   match '/is_it_a', to: 'domain_category_votes#is_it_a'
 
   # one domain to many categories
-  match '/which_categories', to: 'domain#which_categories'
+  match '/which_categories', to: 'domain_category_votes#which_categories'
 
   # one category to many domains
   match '/which_domains', to: 'domain_category_votes#which_domains'

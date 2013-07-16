@@ -9,21 +9,24 @@ class DomainCategoryVotesController < ApplicationController
     redirect_to action: next_action
   end
 
+  # one domain to one category
   def is_it_a
     @domain = random_domains(1).first
     @category = random_category
     @domain_category_vote = DomainCategoryVote.new
   end
 
+  # one domain to all categories
   def which_categories
     @domain = random_domains(1).first
     @categories = Category.all
     @domain_category_vote = DomainCategoryVote.new
   end
 
+  # many domains, one category
   def which_domains
     @domains = random_domains
-    @category = random_category
+    @categories = [random_category]
     @domain_category_vote = DomainCategoryVote.new
   end
 
@@ -38,6 +41,13 @@ class DomainCategoryVotesController < ApplicationController
   end
 
   def votes_for
+    params['domain_category_vote'].each do |k,v|
+      DomainCategoryVote.new(
+        domain: Domain.find_by_id(v['domain']),
+        category: Category.find_by_slug(v['category']),
+        vote: v['vote']).save
+    end
+    redirect_to action: :which_categories
   end
 
   private

@@ -1,6 +1,10 @@
 <div class = "domain-choice">
   <h3><%= domain_choice.name %></h3>
-  <ul>
-
-  </ul>
+  <% @categories.each do |category| %>
+      <%= hidden_field "domain_category_vote[#{vote_counter}]", :domain, value: domain_choice.id %>
+      <%= hidden_field "domain_category_vote[#{vote_counter}]", :category, value: category.slug  %>
+      <%= label "domain_category_vote[#{vote_counter}]", category.slug %>
+      <%= check_box "domain_category_vote[#{vote_counter}]", :vote %><br />
+      <% vote_counter += 1 %>
+  <% end %>
 </div>
