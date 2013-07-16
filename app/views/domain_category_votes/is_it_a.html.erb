@@ -1,0 +1,7 @@
+<h1>Is <%= @domain.name %> in the category of <%= @category.name %>?</h1>
+<div class="float-left yes choice">
+  <a href="<%= "#{@domain.id}/is_a/#{@category.slug}"-%>"> YES </a>
+</div>
+<div class="float-right no choice">
+  <a href="<%= "#{@domain.id}/is_not_a/#{@category.slug}"-%>"> NO </a>
+</div>
