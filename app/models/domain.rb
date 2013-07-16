@@ -1,5 +1,5 @@
 class Domain < ActiveRecord::Base
-  validates uniqueness: true
+  validates :name, uniqueness: true
 
   has_many :domain_category_votes
   has_many :categories, through: :domain_category_votes
