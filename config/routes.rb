@@ -3,6 +3,9 @@ PornOrNot::Application.routes.draw do
   match '/:domain/is_a/:category', to: 'domian_category_votes#vote_for'
   match '/:domian/is_not_a/:category', to: 'domain_category_votes#vote_against'
 
+  resources :domains
+  resources :categories
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
