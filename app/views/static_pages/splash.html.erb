@@ -1,0 +1,26 @@
+<h1>Help me categorize domains!</h1>
+<p>I'm trying to categorize domain names into a set of categories,
+but I can't do it alone. I need your help.</p>
+
+<p>Choose from one of the following three experiences to help me categorize
+domains. Each voting experience type is a bit different, pick whichever you
+find more enjoyable.</p>
+
+<dl>
+  <dt><%= link_to "Yes/No", is_it_a_path %></dt>
+    <dd>You'll simply be asked if a domain is in a category or not.</dd>
+    <br />
+  <dt><%= link_to "Domain Picker", which_domains_path %></dt>
+    <dd>
+      This experience allows you to select all the domains that fall into the
+      given category.
+    </dd>
+    <br />
+  <dt><%= link_to "Category Picker", which_categories_path %></dt>
+    <dd>
+      Instead of picking all the domains that fall under a category, the Category
+      Picker asks you to pick all the categories for a given domain.
+    </dd>
+    <br />
+</dl>
+
