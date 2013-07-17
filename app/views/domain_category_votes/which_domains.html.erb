@@ -1,0 +1,10 @@
+<h1>Select which domains belong in the <%= @categories.first.name %> category</h1>
+<%= form_for @domain_category_vote, url: { action: 'votes_for' } do |f| %>
+  <% @domains.each_with_index do |domain, i| %>
+    <% locals = { domain_choice: domain, vote_counter: i } %>
+    <%= render partial: 'domain_choice', locals: locals %>
+  <% end %>
+  <br />
+  <%= f.hidden_field "voting_method", value: params[:action] %>
+  <%= f.submit "Done" %>
+<% end %>

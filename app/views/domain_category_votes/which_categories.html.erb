@@ -1,5 +1,7 @@
 <h1>In which categories does this domain fit?</h1>
 <%= form_for @domain_category_vote, url: { action: 'votes_for' } do |f| %>
-  <%= render partial: 'domain_choice', locals: { domain_choice: @domain, vote_counter: 0 } %>
+  <% locals = { domain_choice: @domain, vote_counter: 0 } %>
+  <%= render partial: 'domain_choice', locals: locals %>
+  <%= f.hidden_field "voting_method", value: params[:action] %>
   <%= f.submit "Done" %>
 <% end %>

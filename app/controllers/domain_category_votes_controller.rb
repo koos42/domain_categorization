@@ -47,7 +47,16 @@ class DomainCategoryVotesController < ApplicationController
         category: Category.find_by_slug(v['category']),
         vote: v['vote']).save
     end
-    redirect_to action: :which_categories
+
+    voting_method = params["domain_category_vote"]["voting_method"]
+    case voting_method
+    when 'which_domains'
+      redirect_to action: :which_domains
+    when 'which_categories'
+      redirect_to action: :which_categories
+    else
+      redirect_to action: :index
+    end
   end
 
   private
