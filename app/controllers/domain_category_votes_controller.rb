@@ -43,6 +43,7 @@ class DomainCategoryVotesController < ApplicationController
 
   def votes_for
     params['domain_category_vote'].each do |k,v|
+      next if k == "voting_method"
       DomainCategoryVote.new(
         domain: Domain.find_by_id(v['domain']),
         category: Category.find_by_slug(v['category']),
