@@ -4,7 +4,7 @@ class DomainCategoryVotesController < ApplicationController
   NUMBER_OF_DOMAINS = 9
 
   def index
-    actions = %w[ is_it_a which_categories which_domians ]
+    actions = %w[ is_it_a which_categories which_domains ]
     next_action = actions[rand(0..(actions.count - 1))]
     redirect_to action: next_action
   end
@@ -36,7 +36,8 @@ class DomainCategoryVotesController < ApplicationController
   end
 
   def vote_against
-    DomainCategoryVote.new(domain: @domain, category: @category, vote: false).save
+    success = DomainCategoryVote.new(domain: @domain, category: @category, vote: false).save
+    debugger
     redirect_to action: :is_it_a
   end
 

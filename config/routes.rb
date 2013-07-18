@@ -7,7 +7,7 @@ PornOrNot::Application.routes.draw do
   match '/start_voting', to: 'domain_category_votes#index'
 
   match '/:domain_id/is_a/:category_slug', to: 'domain_category_votes#vote_for', as: 'it_is_a'
-  match '/:domian_id/is_not_a/:category_slug', to: 'domain_category_votes#vote_against', as: 'it_is_not_a'
+  match '/:domain_id/is_not_a/:category_slug', to: 'domain_category_votes#vote_against', as: 'it_is_not_a'
   post  '/they_are', to: 'domain_category_votes#votes_for', as: 'they_are'
 
   # one domain to one category
