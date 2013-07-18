@@ -12,6 +12,10 @@ class DomainsController < ApplicationController
     redirect_to action: :index and return
   end
 
+  def show
+    @domain = Domain.find(params[:id])
+  end
+
   def destroy
     Domain.destroy(params[:id])
     redirect_to action: :index and return

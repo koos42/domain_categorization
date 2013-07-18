@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716040247) do
+ActiveRecord::Schema.define(:version => 20130718184832) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(:version => 20130716040247) do
   create_table "domain_category_votes", :force => true do |t|
     t.integer  "domain_id"
     t.integer  "category_id"
-    t.string   "vote"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "vote",        :limit => 255, :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "domains", :force => true do |t|

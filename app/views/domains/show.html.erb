@@ -1,0 +1,12 @@
+<h1><%= @domain.name %></h1>
+<table>
+  <tr><th>Category</th><th>Votes For</th><th>Votes Against</th><th>Total Votes</th></tr>
+  <% @domain.vote_sums.each do |category, sums| %>
+    <tr>
+      <td><%= link_to category.name, category %></td>
+      <td><%= sums[:for] %></td>
+      <td><%= sums[:against] %></td>
+      <td><%= sums[:total] %></td>
+    </tr>
+  <% end %>
+</table>
