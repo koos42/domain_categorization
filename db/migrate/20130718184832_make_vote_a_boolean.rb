@@ -1,11 +1,11 @@
 class MakeVoteABoolean < ActiveRecord::Migration
   def up
-    remove_column :domain_category_votes, :vote
-    add_column :domain_category_votes, :vote, :boolean, null: false
+    rename_column :domain_category_votes, :vote, :vote_string
+    add_column :domain_category_votes, :vote, :boolean, null: false, default: false
   end
 
   def down
     remove_column :domain_category_votes, :vote
-    add_column :domain_category_votes, :string, :boolean, null: false
+    add_column :domain_category_votes, :vote, :string
   end
 end
