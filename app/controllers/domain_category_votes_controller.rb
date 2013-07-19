@@ -36,8 +36,7 @@ class DomainCategoryVotesController < ApplicationController
   end
 
   def vote_against
-    success = DomainCategoryVote.new(domain: @domain, category: @category, vote: false).save
-    debugger
+    DomainCategoryVote.new(domain: @domain, category: @category, vote: false).save
     redirect_to action: :is_it_a
   end
 
