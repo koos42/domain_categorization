@@ -5,7 +5,7 @@ class MakeVoteABoolean < ActiveRecord::Migration
   end
 
   def down
-    remove_column :domain_category_votes, :vote
+    remove_column :domain_category_votes, :vote_string
     add_column :domain_category_votes, :vote, :string
   end
 end
